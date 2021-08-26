@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit()" #userForm="ngForm" class="form-horizontal">
+    <fieldset>
+        <div align='center'>
+            <legend>Login</legend>
+        </div>
+        <div align='center'>
+            <div class="form-group">
+                <label align='left' for="inputEmail" class="col-lg-2 control-label">Username</label>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Enter mail.." name='username' [(ngModel)]='username' />
+                </div>
+            </div>
+            <div class="form-group">
+                <label align='left' for="inputPassword" class="col-lg-2 control-label">Password</label>
+                <div class="col-lg-2">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Enter passwd.." name='password' [(ngModel)]='password' />
+                </div>
+            </div>
+            <div align='center'>
+                <p class="text-danger">
+                    <small *ngIf='!valid'>{{validMsg}}</small>
+                </p>
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <div align=center class="col-lg-10 col-lg-offset-2">
+                    <button type='submit' [disabled]="!userForm.form.valid" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,41 @@
+<form (ngSubmit)="onSubmit()" #userForm="ngForm" class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-1"> <label for="employeeID" class="col-lg-2 control-label"> <b>ID</b></label></div>
+                <div class="col-3"><input type="text" class="form-control" id="employeeID" placeholder="ID.." name='employeeID' [(ngModel)]='employeeID' /></div>
+                <div class="col-2"><label for="employeeName" class="col-lg-2 control-label"> <b>Name</b></label></div>
+                <div class="col-4"><input type="text" class="form-control" id="employeeName" placeholder="Name.." name='employeeName' [(ngModel)]='employeeName' /></div>
+                <div class="col-2"><button type='submit' class="btn btn-primary">Search</button></div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<br>
+<br>
+<br>
+<br>
+<div align=right class="col-lg-10 ">
+    <button type='button' class="btn btn-primary" (click)="createNew()">Add New Employee</button>
+</div>
+<div align='center'>
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th *ngFor="let header of headers">{{header}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of listemployees">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.phoneNumber}}</td>
+                <td>{{p.supervisor}}</td>
+                <td><a [routerLink]="" (click)="editEmployee(p)" class='btn btn-outline-success'>Edit</a></td>
+                <td><a [routerLink]="" (click)="deleteEmployee(p)" class='btn btn-outline-danger'>Delete</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
